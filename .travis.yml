@@ -2,20 +2,16 @@ sudo: required
 services:
   - docker
 
-env:
-  - NAME=mannydesigns/react-example1
-  - USER=mannydesigns
-  - PASS=vVc9xAvUZK81whlk
-
 script:
   - docker build -t react-app .
 
 before_deploy:
-  - docker login -u "$USER" -p "$PASS" 
-  - docker tag "$IMAGE" "${IMAGE}"
+  - docker login -u mannydesigns -p vVc9xAvUZK81whlk 
+  - git_sha="$(git rev-parse --short HEAD)"
+  - docker tag react-app
 
 deploy:
   provider: script
-  script: docker push "${IMAGE}"
+  script: docker push mannydesigns/react-example1
   on:
     branch: master
