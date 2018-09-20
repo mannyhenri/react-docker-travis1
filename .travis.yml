@@ -8,9 +8,9 @@ script:
 before_deploy:
   - docker login -u mannydesigns -p vVc9xAvUZK81whlk 
   - git_sha="$(git rev-parse --short HEAD)"
-  - docker tag react-app
 
 deploy:
+  skip_cleanup: true
   provider: script
   script: docker push mannydesigns/react-example1
   on:
