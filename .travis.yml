@@ -5,3 +5,6 @@ services:
 before_install:
   - docker build -t react-app .
   - docker run -it -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm react-app
+
+script:
+  - npm test
