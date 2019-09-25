@@ -7,7 +7,7 @@ script:
   - docker images mannydesigns/react-example
 
 before_deploy:
-  - docker login -u mannydesigns -p vVc9xAvUZK81whlk 
+  - docker login -u mannydesigns -p 
   - docker images mannydesigns/react-example
 
 deploy:
